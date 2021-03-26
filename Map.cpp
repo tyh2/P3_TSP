@@ -16,11 +16,31 @@ using namespace std;
 Map::Map()
 {
 	numCities = 0;
+	distances = new double *[20];
+	for(int i =0; i < 20; i++) {
+		distances[i] = new double[20];
+	}
+
+	for(int i = 0; i < 20; i++) {
+                for(int j = 0; j < 20; j++) {
+                        distances[i][j] = 0.0;
+                }
+        }
 }
 
 Map::Map(int numCities)
 {
 	this->numCities = numCities;
+	 distances = new double *[20];
+        for(int i =0; i < 20; i++) {
+                distances[i] = new double[20];
+        }
+
+	for(int i = 0; i < 20; i++) {
+		for(int j = 0; j < 20; j++) {
+			distances[i][j] = 0.0;
+		}
+	}
 }
 
 void Map::readDistances()
@@ -55,12 +75,12 @@ int Map::getNumCities()
 	return numCities;
 }
 
-void Map::setDistances(vector<vector<double>> dist)
+void Map::setDistances(double** dist)
 {
 	distances = dist;
 }
 
-vector<vector<double>> Map::getDistances()
+double** Map::getDistances()
 {
 	return distances;
 }

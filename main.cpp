@@ -25,7 +25,7 @@ int main() {
 	tspMap.readDistances();
 
 	BruteForce bfs(tspMap);
-	bfs.runBruteForce();
+	//bfs.runBruteForce();
 	//GeneticAlgorithm ga(tspMap);
 
 

@@ -7,11 +7,17 @@ using namespace std;
 
 BruteForce::BruteForce(Map m)
 {
+	double** tempDist = m.getDistances();
 	this->map.setNumCities(m.getNumCities());
-	this->map.setDistances(m.getDistances());	
+	this->map.setDistances(tempDist);	
 }
 
 void BruteForce::runBruteForce()
 {
 	currTour = map.getInitialTour();
+/*
+	for(int i = 0; i < currTour.size(); i++) {
+		cout << currTour[i] << endl;
+	}
+*/
 }
