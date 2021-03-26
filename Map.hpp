@@ -15,10 +15,15 @@ class Map {
 
 	private:
 		int numCities;
-		double distances[20][20];
+		vector<vector<double>> distances;
 	public:
+		Map();
 		Map(int numCities);
 		void readDistances();
+		void setNumCities(int cities);
+		int getNumCities();
+		void setDistances(vector<vector<double>> dist);
+		vector<vector<double>> getDistances();
 		vector<int> getInitialTour();
 		double getTourCost(vector<int> tour);
 		double getDistance(int city1, int city2) const;

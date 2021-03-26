@@ -13,6 +13,11 @@
 #include <string>
 using namespace std;
 
+Map::Map()
+{
+	numCities = 0;
+}
+
 Map::Map(int numCities)
 {
 	this->numCities = numCities;
@@ -22,20 +27,42 @@ void Map::readDistances()
 {
 	ifstream inFile;
 	inFile.open("distances.txt");
-	string thisDistance;
-	size_t sz = 0;
+	const int MAX = 20;
 	
 	if(inFile.is_open()) {
- 		for(int i = 0; i < 20; i++) {
-			for(int j = 0; j < 20; j++) {
-				getline(inFile, thisDistance);
-				cout << thisDistance;
-				//distances[i][j] = stod(thisDistance);
+ 		for(int i = 0; i < MAX; i++) {
+			for(int j = 0; j < MAX; j++) {
+				if(i == j) {
+					distances[i][j] = 0.0;
+				}
+				else {
+					inFile >> distances[i][j];
+				}
 			}
 		}
 	}
 
 	inFile.close();
+}
+
+void Map::setNumCities(int cities)
+{
+	numCities = cities;
+}
+
+int Map::getNumCities()
+{
+	return numCities;
+}
+
+void Map::setDistances(vector<vector<double>> dist)
+{
+	distances = dist;
+}
+
+vector<vector<double>> Map::getDistances()
+{
+	return distances;
 }
 
 vector<int> Map::getInitialTour()

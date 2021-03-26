@@ -1,4 +1,6 @@
 #include "Map.hpp"
+#include "BruteForce.hpp"
+#include "GeneticAlgorithm.hpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -21,6 +23,10 @@ int main() {
 
 	Map tspMap(numCities);
 	tspMap.readDistances();
+
+	BruteForce bfs(tspMap);
+	bfs.runBruteForce();
+	//GeneticAlgorithm ga(tspMap);
 
 
 
